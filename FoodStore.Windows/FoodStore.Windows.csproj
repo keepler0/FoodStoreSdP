@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodStore.Entidades\FoodStore.Entidades.csproj" />
+    <ProjectReference Include="..\FoodStore.IoC\FoodStore.IoC.csproj" />
+    <ProjectReference Include="..\FoodStore.Servicios\FoodStore.Servicios.csproj" />
+  </ItemGroup>
+
+</Project>
