@@ -1,5 +1,6 @@
 ﻿using FoodStore.Windows.Forms.Categorias;
 using FoodStore.Windows.Forms.Clientes;
+using FoodStore.Windows.Forms.Combos;
 using FoodStore.Windows.Forms.Empleados;
 using FoodStore.Windows.Forms.Empresas;
 using FoodStore.Windows.Forms.Localidades;
@@ -70,6 +71,12 @@ namespace FoodStore.Windows.Forms
 		private void btnProductos_Click(object sender, EventArgs e)
 		{
 			var frm = new frmProductos(_serviceProvider!);
+			frm.ShowDialog();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			var frm = new frmCombos(_serviceProvider!);
 			frm.ShowDialog();
 		}
 	}

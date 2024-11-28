@@ -14,6 +14,8 @@ namespace FoodStore.Servicios.Interfaces
 									OrdenarProductos? ordenar = OrdenarProductos.Ninguno,
 									Categoria? categoria = null,
 									SubCategoria? subCategoria = null);
+		List<Producto> GetListaPorCategoria(int categoriaId);
+		List<Producto>? GetListaProductos();
 		void Guardar(Producto? producto);
 	}
 }

@@ -64,6 +64,20 @@ namespace FoodStore.Windows.Helpers
 					r.Cells[6].Value = p.PrecioFinal.ToString() ?? "N/D";
 					r.Cells[7].Value = p.FechaVencimiento.HasValue?p.FechaVencimiento.Value.ToShortDateString(): "N/D";
 					break;
+				case ComboListDto c:
+					r.Cells[0].Value = c.NombreCombo;
+					r.Cells[1].Value = c.Descripcion ?? "N/D";
+					r.Cells[2].Value = c.NombreTamanio ?? "N/D";
+					r.Cells[3].Value = c.CantidadProductos;
+					r.Cells[4].Value = c.PrecioCombo;
+					r.Cells[5].Value = c.Vigente;
+					break;
+				case ComboProducto cp:
+					r.Cells[0].Value = cp.Producto!.ProductoId;
+					r.Cells[1].Value = cp.Producto!.CodigoBarras;
+					r.Cells[2].Value = cp.Producto!.Descripcion ?? "N/D";
+					r.Cells[3].Value = cp.Cantidad.ToString() ?? "N/D";
+					break;
 				default:
 					break;
 			}
@@ -80,6 +94,17 @@ namespace FoodStore.Windows.Helpers
 		public static void LimpiarGrilla(DataGridView dgvDatos)
 		{
 			dgvDatos.Rows.Clear();
+		}
+
+		public static void MostrarDatosEnGrilla<T>(List<T>? lista,DataGridView dgvDatos)where T : class
+		{
+			LimpiarGrilla(dgvDatos);
+			foreach (var item in lista!)
+			{
+				var r = ConstruirFila(dgvDatos);
+				SetFila(r, dgvDatos);
+				AgregarFila(dgvDatos, r);
+			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
-﻿namespace FoodStore.Windows.Forms.Productos
+﻿namespace FoodStore.Windows.Forms.Combos
 {
-	partial class frmProductos
+	partial class frmCombos
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,24 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-			DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
+			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+			DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCombos));
 			panel3 = new Panel();
 			dgvDatos = new DataGridView();
+			colId = new DataGridViewTextBoxColumn();
 			colpais = new DataGridViewTextBoxColumn();
 			colProvincia = new DataGridViewTextBoxColumn();
-			colCuit = new DataGridViewTextBoxColumn();
-			colRol = new DataGridViewTextBoxColumn();
+			coltamanio = new DataGridViewTextBoxColumn();
+			colcantidad = new DataGridViewTextBoxColumn();
 			Column1 = new DataGridViewTextBoxColumn();
-			col = new DataGridViewTextBoxColumn();
-			Column2 = new DataGridViewTextBoxColumn();
-			Column3 = new DataGridViewTextBoxColumn();
+			Column3 = new DataGridViewCheckBoxColumn();
 			panel2 = new Panel();
 			tbxMarca = new TextBox();
+			label11 = new Label();
 			btnBuscarMarca = new Button();
 			btnQuitarOrden = new Button();
 			btnQuitarSubCategoria = new Button();
@@ -58,19 +58,18 @@
 			cbxSubCategorias = new ComboBox();
 			cbxCategorias = new ComboBox();
 			panel1 = new Panel();
+			label10 = new Label();
+			label9 = new Label();
+			label8 = new Label();
+			label7 = new Label();
+			label6 = new Label();
+			label4 = new Label();
 			btnSalir = new Button();
 			btnDatos = new Button();
 			btnActualiza = new Button();
 			btnEditar = new Button();
 			btnBorrar = new Button();
 			btnNuevo = new Button();
-			label4 = new Label();
-			label6 = new Label();
-			label7 = new Label();
-			label8 = new Label();
-			label9 = new Label();
-			label10 = new Label();
-			label11 = new Label();
 			panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
 			panel2.SuspendLayout();
@@ -84,38 +83,38 @@
 			panel3.Location = new Point(254, 132);
 			panel3.Name = "panel3";
 			panel3.Size = new Size(1495, 544);
-			panel3.TabIndex = 14;
+			panel3.TabIndex = 17;
 			// 
 			// dgvDatos
 			// 
 			dgvDatos.AllowUserToAddRows = false;
 			dgvDatos.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle6.BackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-			dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+			dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			dgvDatos.BackgroundColor = Color.FromArgb(218, 253, 254);
 			dgvDatos.BorderStyle = BorderStyle.None;
 			dgvDatos.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
 			dgvDatos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-			dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-			dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle7.SelectionForeColor = SystemColors.Desktop;
-			dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+			dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+			dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
+			dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colpais, colProvincia, colCuit, colRol, Column1, col, Column2, Column3 });
-			dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-			dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-			dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(218, 253, 254);
-			dataGridViewCellStyle8.SelectionForeColor = SystemColors.Desktop;
-			dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-			dgvDatos.DefaultCellStyle = dataGridViewCellStyle8;
+			dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colpais, colProvincia, coltamanio, colcantidad, Column1, Column3 });
+			dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+			dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+			dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(218, 253, 254);
+			dataGridViewCellStyle3.SelectionForeColor = SystemColors.Desktop;
+			dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+			dgvDatos.DefaultCellStyle = dataGridViewCellStyle3;
 			dgvDatos.Dock = DockStyle.Fill;
 			dgvDatos.GridColor = SystemColors.InactiveBorder;
 			dgvDatos.Location = new Point(0, 0);
@@ -123,25 +122,34 @@
 			dgvDatos.Name = "dgvDatos";
 			dgvDatos.ReadOnly = true;
 			dgvDatos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = Color.FromArgb(254, 255, 230);
-			dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-			dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(255, 255, 192);
-			dataGridViewCellStyle9.SelectionForeColor = SystemColors.Desktop;
-			dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-			dgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = Color.FromArgb(254, 255, 230);
+			dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+			dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 255, 192);
+			dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
+			dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+			dgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			dgvDatos.RowHeadersWidth = 62;
-			dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			dgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dgvDatos.Size = new Size(1495, 544);
 			dgvDatos.TabIndex = 0;
 			// 
+			// colId
+			// 
+			colId.HeaderText = "id";
+			colId.MinimumWidth = 8;
+			colId.Name = "colId";
+			colId.ReadOnly = true;
+			colId.Visible = false;
+			colId.Width = 150;
+			// 
 			// colpais
 			// 
 			colpais.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			colpais.HeaderText = "Marca";
+			colpais.HeaderText = "Nombre";
 			colpais.MinimumWidth = 8;
 			colpais.Name = "colpais";
 			colpais.ReadOnly = true;
@@ -154,53 +162,39 @@
 			colProvincia.Name = "colProvincia";
 			colProvincia.ReadOnly = true;
 			// 
-			// colCuit
+			// coltamanio
 			// 
-			colCuit.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			colCuit.HeaderText = "Categoria";
-			colCuit.MinimumWidth = 8;
-			colCuit.Name = "colCuit";
-			colCuit.ReadOnly = true;
+			coltamanio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			coltamanio.HeaderText = "Tamaño";
+			coltamanio.MinimumWidth = 8;
+			coltamanio.Name = "coltamanio";
+			coltamanio.ReadOnly = true;
 			// 
-			// colRol
+			// colcantidad
 			// 
-			colRol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			colRol.HeaderText = "Sub-Categoria";
-			colRol.MinimumWidth = 8;
-			colRol.Name = "colRol";
-			colRol.ReadOnly = true;
+			colcantidad.HeaderText = "Cantidad de productos";
+			colcantidad.MinimumWidth = 8;
+			colcantidad.Name = "colcantidad";
+			colcantidad.ReadOnly = true;
+			colcantidad.Width = 256;
 			// 
 			// Column1
 			// 
-			Column1.HeaderText = "Stock";
+			Column1.HeaderText = "Precio";
 			Column1.MinimumWidth = 8;
 			Column1.Name = "Column1";
 			Column1.ReadOnly = true;
 			Column1.Width = 150;
 			// 
-			// col
-			// 
-			col.HeaderText = "Precio unitario";
-			col.MinimumWidth = 8;
-			col.Name = "col";
-			col.ReadOnly = true;
-			col.Width = 150;
-			// 
-			// Column2
-			// 
-			Column2.HeaderText = "Precio final";
-			Column2.MinimumWidth = 8;
-			Column2.Name = "Column2";
-			Column2.ReadOnly = true;
-			Column2.Width = 150;
-			// 
 			// Column3
 			// 
-			Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-			Column3.HeaderText = "Fecha vencimiento";
+			Column3.HeaderText = "Vigente";
 			Column3.MinimumWidth = 8;
 			Column3.Name = "Column3";
 			Column3.ReadOnly = true;
+			Column3.Resizable = DataGridViewTriState.True;
+			Column3.SortMode = DataGridViewColumnSortMode.Automatic;
+			Column3.Width = 257;
 			// 
 			// panel2
 			// 
@@ -222,7 +216,7 @@
 			panel2.Location = new Point(254, 0);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(1495, 132);
-			panel2.TabIndex = 13;
+			panel2.TabIndex = 16;
 			// 
 			// tbxMarca
 			// 
@@ -231,6 +225,17 @@
 			tbxMarca.Name = "tbxMarca";
 			tbxMarca.Size = new Size(202, 31);
 			tbxMarca.TabIndex = 3;
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			label11.ForeColor = Color.FromArgb(222, 206, 5);
+			label11.Location = new Point(6, 9);
+			label11.Name = "label11";
+			label11.Size = new Size(304, 96);
+			label11.TabIndex = 4;
+			label11.Text = "Combos";
 			// 
 			// btnBuscarMarca
 			// 
@@ -244,7 +249,6 @@
 			btnBuscarMarca.Size = new Size(33, 33);
 			btnBuscarMarca.TabIndex = 2;
 			btnBuscarMarca.UseVisualStyleBackColor = false;
-			btnBuscarMarca.Click += btnBuscarMarca_Click;
 			// 
 			// btnQuitarOrden
 			// 
@@ -259,7 +263,6 @@
 			btnQuitarOrden.Size = new Size(33, 33);
 			btnQuitarOrden.TabIndex = 2;
 			btnQuitarOrden.UseVisualStyleBackColor = false;
-			btnQuitarOrden.Click += btnQuitarOrden_Click;
 			// 
 			// btnQuitarSubCategoria
 			// 
@@ -273,7 +276,6 @@
 			btnQuitarSubCategoria.Size = new Size(33, 33);
 			btnQuitarSubCategoria.TabIndex = 2;
 			btnQuitarSubCategoria.UseVisualStyleBackColor = false;
-			btnQuitarSubCategoria.Click += btnQuitarSubCategoria_Click;
 			// 
 			// label5
 			// 
@@ -298,7 +300,6 @@
 			btnQuitarCategoria.Size = new Size(33, 33);
 			btnQuitarCategoria.TabIndex = 2;
 			btnQuitarCategoria.UseVisualStyleBackColor = false;
-			btnQuitarCategoria.Click += btnQuitarCategoria_Click;
 			// 
 			// label3
 			// 
@@ -342,7 +343,6 @@
 			cbxOrdenar.Name = "cbxOrdenar";
 			cbxOrdenar.Size = new Size(184, 33);
 			cbxOrdenar.TabIndex = 0;
-			cbxOrdenar.SelectedIndexChanged += cbxOrdenar_SelectedIndexChanged;
 			// 
 			// cbxSubCategorias
 			// 
@@ -353,7 +353,6 @@
 			cbxSubCategorias.Name = "cbxSubCategorias";
 			cbxSubCategorias.Size = new Size(184, 33);
 			cbxSubCategorias.TabIndex = 0;
-			cbxSubCategorias.SelectedIndexChanged += cbxSubCategorias_SelectedIndexChanged;
 			// 
 			// cbxCategorias
 			// 
@@ -364,7 +363,6 @@
 			cbxCategorias.Name = "cbxCategorias";
 			cbxCategorias.Size = new Size(184, 33);
 			cbxCategorias.TabIndex = 0;
-			cbxCategorias.SelectedIndexChanged += cbxCategorias_SelectedIndexChanged;
 			// 
 			// panel1
 			// 
@@ -385,11 +383,72 @@
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
 			panel1.Size = new Size(254, 676);
-			panel1.TabIndex = 12;
+			panel1.TabIndex = 15;
+			// 
+			// label10
+			// 
+			label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			label10.AutoSize = true;
+			label10.ForeColor = Color.FromArgb(222, 206, 5);
+			label10.Location = new Point(128, 605);
+			label10.Name = "label10";
+			label10.Size = new Size(45, 25);
+			label10.TabIndex = 4;
+			label10.Text = "Salir";
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.ForeColor = Color.FromArgb(222, 206, 5);
+			label9.Location = new Point(128, 431);
+			label9.Name = "label9";
+			label9.Size = new Size(102, 25);
+			label9.TabIndex = 4;
+			label9.Text = "Ver detalles";
+			// 
+			// label8
+			// 
+			label8.AutoSize = true;
+			label8.ForeColor = Color.FromArgb(222, 206, 5);
+			label8.Location = new Point(128, 362);
+			label8.Name = "label8";
+			label8.Size = new Size(88, 25);
+			label8.TabIndex = 4;
+			label8.Text = "Actualizar";
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.ForeColor = Color.FromArgb(222, 206, 5);
+			label7.Location = new Point(128, 293);
+			label7.Name = "label7";
+			label7.Size = new Size(57, 25);
+			label7.TabIndex = 4;
+			label7.Text = "Editar";
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.ForeColor = Color.FromArgb(222, 206, 5);
+			label6.Location = new Point(128, 224);
+			label6.Name = "label6";
+			label6.Size = new Size(60, 25);
+			label6.TabIndex = 4;
+			label6.Text = "Borrar";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.ForeColor = Color.FromArgb(222, 206, 5);
+			label4.Location = new Point(128, 155);
+			label4.Name = "label4";
+			label4.Size = new Size(64, 25);
+			label4.TabIndex = 4;
+			label4.Text = "Nuevo";
 			// 
 			// btnSalir
 			// 
-			btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			btnSalir.BackColor = Color.FromArgb(222, 206, 5);
 			btnSalir.FlatStyle = FlatStyle.Flat;
 			btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
@@ -400,7 +459,6 @@
 			btnSalir.TextAlign = ContentAlignment.MiddleLeft;
 			btnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
 			btnSalir.UseVisualStyleBackColor = false;
-			btnSalir.Click += btnSalir_Click;
 			// 
 			// btnDatos
 			// 
@@ -415,7 +473,6 @@
 			btnDatos.TextAlign = ContentAlignment.MiddleLeft;
 			btnDatos.TextImageRelation = TextImageRelation.ImageBeforeText;
 			btnDatos.UseVisualStyleBackColor = false;
-			btnDatos.Click += btnDatos_Click;
 			// 
 			// btnActualiza
 			// 
@@ -430,7 +487,6 @@
 			btnActualiza.TextAlign = ContentAlignment.MiddleLeft;
 			btnActualiza.TextImageRelation = TextImageRelation.ImageBeforeText;
 			btnActualiza.UseVisualStyleBackColor = false;
-			btnActualiza.Click += btnActualiza_Click;
 			// 
 			// btnEditar
 			// 
@@ -446,7 +502,6 @@
 			btnEditar.TextAlign = ContentAlignment.MiddleLeft;
 			btnEditar.TextImageRelation = TextImageRelation.ImageBeforeText;
 			btnEditar.UseVisualStyleBackColor = false;
-			btnEditar.Click += btnEditar_Click;
 			// 
 			// btnBorrar
 			// 
@@ -461,7 +516,6 @@
 			btnBorrar.TextAlign = ContentAlignment.MiddleLeft;
 			btnBorrar.TextImageRelation = TextImageRelation.ImageBeforeText;
 			btnBorrar.UseVisualStyleBackColor = false;
-			btnBorrar.Click += btnBorrar_Click;
 			// 
 			// btnNuevo
 			// 
@@ -478,78 +532,7 @@
 			btnNuevo.UseVisualStyleBackColor = false;
 			btnNuevo.Click += btnNuevo_Click;
 			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.ForeColor = Color.FromArgb(222, 206, 5);
-			label4.Location = new Point(128, 155);
-			label4.Name = "label4";
-			label4.Size = new Size(64, 25);
-			label4.TabIndex = 4;
-			label4.Text = "Nuevo";
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.ForeColor = Color.FromArgb(222, 206, 5);
-			label6.Location = new Point(128, 224);
-			label6.Name = "label6";
-			label6.Size = new Size(60, 25);
-			label6.TabIndex = 4;
-			label6.Text = "Borrar";
-			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.ForeColor = Color.FromArgb(222, 206, 5);
-			label7.Location = new Point(128, 293);
-			label7.Name = "label7";
-			label7.Size = new Size(57, 25);
-			label7.TabIndex = 4;
-			label7.Text = "Editar";
-			// 
-			// label8
-			// 
-			label8.AutoSize = true;
-			label8.ForeColor = Color.FromArgb(222, 206, 5);
-			label8.Location = new Point(128, 362);
-			label8.Name = "label8";
-			label8.Size = new Size(88, 25);
-			label8.TabIndex = 4;
-			label8.Text = "Actualizar";
-			// 
-			// label9
-			// 
-			label9.AutoSize = true;
-			label9.ForeColor = Color.FromArgb(222, 206, 5);
-			label9.Location = new Point(128, 431);
-			label9.Name = "label9";
-			label9.Size = new Size(102, 25);
-			label9.TabIndex = 4;
-			label9.Text = "Ver detalles";
-			// 
-			// label10
-			// 
-			label10.AutoSize = true;
-			label10.ForeColor = Color.FromArgb(222, 206, 5);
-			label10.Location = new Point(128, 605);
-			label10.Name = "label10";
-			label10.Size = new Size(45, 25);
-			label10.TabIndex = 4;
-			label10.Text = "Salir";
-			// 
-			// label11
-			// 
-			label11.AutoSize = true;
-			label11.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label11.ForeColor = Color.FromArgb(222, 206, 5);
-			label11.Location = new Point(6, 9);
-			label11.Name = "label11";
-			label11.Size = new Size(358, 96);
-			label11.TabIndex = 4;
-			label11.Text = "Inventario";
-			// 
-			// frmProductos
+			// frmCombos
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -557,11 +540,10 @@
 			Controls.Add(panel3);
 			Controls.Add(panel2);
 			Controls.Add(panel1);
-			MinimumSize = new Size(1335, 561);
-			Name = "frmProductos";
+			Name = "frmCombos";
 			StartPosition = FormStartPosition.CenterScreen;
-			Text = "frmProductos";
-			Load += frmProductos_Load;
+			Text = "frmCombos";
+			Load += frmCombos_Load;
 			panel3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
 			panel2.ResumeLayout(false);
@@ -577,6 +559,7 @@
 		private DataGridView dgvDatos;
 		private Panel panel2;
 		private TextBox tbxMarca;
+		private Label label11;
 		private Button btnBuscarMarca;
 		private Button btnQuitarOrden;
 		private Button btnQuitarSubCategoria;
@@ -589,26 +572,24 @@
 		private ComboBox cbxSubCategorias;
 		private ComboBox cbxCategorias;
 		private Panel panel1;
+		private Label label10;
+		private Label label9;
+		private Label label8;
+		private Label label7;
+		private Label label6;
+		private Label label4;
 		private Button btnSalir;
 		private Button btnDatos;
 		private Button btnActualiza;
 		private Button btnEditar;
 		private Button btnBorrar;
 		private Button btnNuevo;
+		private DataGridViewTextBoxColumn colId;
 		private DataGridViewTextBoxColumn colpais;
 		private DataGridViewTextBoxColumn colProvincia;
-		private DataGridViewTextBoxColumn colCuit;
-		private DataGridViewTextBoxColumn colRol;
+		private DataGridViewTextBoxColumn coltamanio;
+		private DataGridViewTextBoxColumn colcantidad;
 		private DataGridViewTextBoxColumn Column1;
-		private DataGridViewTextBoxColumn col;
-		private DataGridViewTextBoxColumn Column2;
-		private DataGridViewTextBoxColumn Column3;
-		private Label label4;
-		private Label label11;
-		private Label label10;
-		private Label label9;
-		private Label label8;
-		private Label label7;
-		private Label label6;
+		private DataGridViewCheckBoxColumn Column3;
 	}
 }

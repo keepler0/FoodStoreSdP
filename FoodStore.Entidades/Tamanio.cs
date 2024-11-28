@@ -9,7 +9,7 @@ namespace FoodStore.Entidades
 	public class Tamanio
 	{
         public int TamanioId { get; set; }
-        public string Nombre { get; set; } = null!;
+        public string NombreTamanio { get; set; } = null!;
         public bool Disponible { get; set; }
     }
 }

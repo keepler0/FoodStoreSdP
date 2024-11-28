@@ -18,5 +18,7 @@ namespace FoodStore.Datos.Interfaces
 										SubCategoria? subCategoria = null);
 		void Editar(Producto? producto, SqlConnection conexion, SqlTransaction tran);
 		void Agregar(Producto? producto, SqlConnection conexion, SqlTransaction tran);
+		List<Producto>? GetListaProductos(SqlConnection conexion);
+		List<Producto> GetListaPorCategoria(SqlConnection conexion, int categoriaId);
 	}
 }

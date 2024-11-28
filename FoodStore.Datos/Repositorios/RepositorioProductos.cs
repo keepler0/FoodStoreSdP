@@ -171,5 +171,25 @@ namespace FoodStore.Datos.Repositorios
 			}
 			return conexion.Query<ProductoListDto>(SelectQuery).ToList();
 		}
+
+		public List<Producto> GetListaPorCategoria(SqlConnection conexion, int categoriaId)
+		{
+			string SelectQuery = @"SELECT ProductoId,Marca,Descripcion,Stock,StockMinimo,
+										  CategoriaId,SubCategoriaId,
+										  PrecioFinal,PrecioUnitario,FechaVencimiento,Imagen,CodigoBarras
+										FROM Inventario 
+										WHERE CategoriaId=@categoriaId";
+			return conexion.Query<Producto>(SelectQuery, new { categoriaId }).ToList();
+		}
+
+		public List<Producto>? GetListaProductos(SqlConnection conexion)
+		{
+			string SelectQuery = @"SELECT ProductoId,Marca,Descripcion,Stock,StockMinimo,
+										  CategoriaId,SubCategoriaId,
+										  PrecioFinal,PrecioUnitario,FechaVencimiento,Imagen,CodigoBarras
+										  FROM Inventario
+										  ORDER BY CategoriaId,SubCategoriaId";
+			return conexion.Query<Producto>(SelectQuery).ToList();
+		}
 	}
 }

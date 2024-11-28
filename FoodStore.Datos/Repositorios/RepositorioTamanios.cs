@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace FoodStore.Datos.Repositorios
 {
-	public class RepositorioTamanios : IRepositorioGenerico<Tamanio>
+	public class RepositorioTamanios : IRepositorioTamanios
 	{
 		public RepositorioTamanios()
 		{
@@ -13,8 +13,8 @@ namespace FoodStore.Datos.Repositorios
 		public void Agregar(Tamanio p,SqlConnection conexion,SqlTransaction tran)
 		{
 
-			string InsertQuery = @"INSERT INTO Tamanios(Nombre,Disponible) 
-									   VALUES(@Nombre,@Disponible);
+			string InsertQuery = @"INSERT INTO Tamanios(NombreTamanio) 
+									   VALUES(@Nombre);
 									   SELECT @@IDENTITY";
 			int id = conexion.QuerySingle<int>(InsertQuery, p);
 			p.TamanioId = id != 0 ? id : throw new Exception("Error en BD, No ha sido posible agregar el registro");
@@ -29,7 +29,7 @@ namespace FoodStore.Datos.Repositorios
 
 		public void Editar(Tamanio p, SqlConnection conexion, SqlTransaction tran)
 		{
-			string UpdateQuery = @"UPDATE Tamanios SET Nombre=@Nombre, Disponible=@Disponible
+			string UpdateQuery = @"UPDATE Tamanios SET NombreTamanio=@NombreTamanio
 									   WHERE TamanioId=@TamanioId";
 			int rows = conexion.Execute(UpdateQuery, p);
 			if (rows == 0) throw new Exception("Error en BD, No ha sido posible editar el registro");
@@ -44,7 +44,7 @@ namespace FoodStore.Datos.Repositorios
 		public bool Existe(Tamanio p, SqlConnection conexion, SqlTransaction? tran = null)
 		{
 			string SelectQuery = @"SELECT COUNT(*) FROM Tamanios 
-										WHERE Nombre=@Nombre";
+										WHERE NombreTamanio=@NombreTamanio";
 			if (p.TamanioId != 0)
 			{
 				SelectQuery += " AND TamanioId<>@TamanioId";
@@ -54,16 +54,16 @@ namespace FoodStore.Datos.Repositorios
 
 		public Tamanio? GetItem(int id, SqlConnection conexion, SqlTransaction? tran = null)
 		{
-			string SelectQuery = @"SELECT TamanioId,Nombre,Disponible FROM Tamanios 
+			string SelectQuery = @"SELECT TamanioId,NombreTamanio FROM Tamanios 
 										WHERE TamanioId=@TamanioId";
 			return (Tamanio?)conexion.ExecuteScalar(SelectQuery, new { id });
 		}
 
 		public List<Tamanio> GetLista(SqlConnection conexion, SqlTransaction? tran = null)
 		{
-			string SelectQuery = @"SELECT TamanioId,Nombre,Disponible 
+			string SelectQuery = @"SELECT TamanioId,NombreTamanio 
 									   FROM Tamanios
-									   ORDER BY Nombre";
+									   ORDER BY NombreTamanio";
 			return conexion.Query<Tamanio>(SelectQuery).ToList();
 		}
 	}

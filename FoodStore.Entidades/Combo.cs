@@ -3,14 +3,22 @@
 	public class Combo
 	{
 		private int _comboId;
-		private string _nombre = null!;
-		private DateOnly _fechaInicio;
-		private DateOnly? _fechaFin;
+		private string _nombreCombo = null!;
+		private DateTime _fechaInicio;
+		private DateTime? _fechaFin;
 		private string? _descripcion;
 		private decimal _precioCombo;
 		private int _tamanioId;
 		private Tamanio? _tamanio;
 		private string? _imagen;
+		private List<ComboProducto> detalles=new List<ComboProducto>();
+
+		public List<ComboProducto> Detalles
+		{
+			get { return detalles; }
+			set { detalles = value; }
+		}
+
 
 		public Tamanio? Tamanio
 		{
@@ -39,25 +47,45 @@
 			set { _descripcion = value; }
 		}
 
-		public DateOnly? FechaFin
+		public DateTime? FechaFin
 		{
 			get { return _fechaFin; }
 			set { _fechaFin = value; }
 		}
-		public DateOnly FechaInicio
+		public DateTime FechaInicio
 		{
 			get { return _fechaInicio; }
 			set { _fechaInicio = value; }
 		}
-		public string Nombre
+		public string NombreCombo
 		{
-			get { return _nombre; }
-			set { _nombre = value; }
+			get { return _nombreCombo; }
+			set { _nombreCombo = value; }
 		}
 		public int ComboId
 		{
 			get { return _comboId; }
 			set { _comboId = value; }
+		}
+		public void Agregar(ComboProducto cp)
+		{
+			var productoEnCombo = Detalles.FirstOrDefault(d => d.ProductoId == cp.ProductoId);
+			if (productoEnCombo is null)
+			{
+				Detalles.Add(cp);
+			}
+			else
+			{
+				cp.Cantidad += cp.Cantidad;
+			}
+		}
+		public bool Existe(ComboProducto cp)
+		{
+			return Detalles.Any(d => d.ProductoId == cp.ProductoId);
+		}
+		public void Eliminar(ComboProducto cp)
+		{
+			Detalles.Remove(cp);
 		}
 	}
 }

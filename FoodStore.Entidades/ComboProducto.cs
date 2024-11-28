@@ -5,8 +5,9 @@
 		private int _comboProductoId;
 		private int _productoId;
 		private Producto? _producto;
+        public int CategoriaId { get; set; }
 
-		public Producto? Producto
+        public Producto? Producto
 		{
 			get { return _producto; }
 			set { _producto = value; }

@@ -1,18 +1,17 @@
 ﻿using FoodStore.Datos.Interfaces;
 using FoodStore.Datos.Repositorios;
-using FoodStore.Entidades.Dtos;
-using FoodStore.Entidades.Enums;
 using FoodStore.Entidades;
-using System.Data.SqlClient;
+using FoodStore.Entidades.Dtos;
 using FoodStore.Servicios.Interfaces;
+using System.Data.SqlClient;
 
 namespace FoodStore.Servicios.Servicios
 {
-	public class ServiciosProductos:IServiciosProductos
+	public class ServiciosCombos : IServiciosCombos
 	{
-		private readonly IRepositorioProductos? _repositorio;
+		private readonly IRepositorioCombos? _repositorio;
 		private readonly string? CadenaConexion;
-		public ServiciosProductos(RepositorioProductos? repositorio, string cadena)
+		public ServiciosCombos(RepositorioCombos repositorio, string cadena)
 		{
 			CadenaConexion = cadena;
 			_repositorio = repositorio;
@@ -55,14 +54,14 @@ namespace FoodStore.Servicios.Servicios
 			}
 		}
 
-		public bool Existe(Producto? producto)
+		public bool Existe(Combo? combo)
 		{
 			using (var conexion = new SqlConnection(CadenaConexion))
 			{
 				conexion.Open();
 				try
 				{
-					return _repositorio!.Existe(producto, conexion);
+					return _repositorio!.Existe(combo, conexion);
 				}
 				catch (Exception)
 				{
@@ -72,7 +71,7 @@ namespace FoodStore.Servicios.Servicios
 			}
 		}
 
-		public Producto? GetItem(int id)
+		public Combo? GetItem(int id)
 		{
 			using (var conexion = new SqlConnection(CadenaConexion))
 			{
@@ -89,17 +88,14 @@ namespace FoodStore.Servicios.Servicios
 			}
 		}
 
-		public List<ProductoListDto>? GetLista(string? filtroMarca = null,
-									OrdenarProductos? ordenar = OrdenarProductos.Ninguno,
-									Categoria? categoria = null,
-									SubCategoria? subCategoria = null)
+		public List<ComboListDto>? GetLista()
 		{
 			using (var conexion = new SqlConnection(CadenaConexion))
 			{
 				conexion.Open();
 				try
 				{
-					return _repositorio!.GetLista(conexion, null, filtroMarca, ordenar, categoria,subCategoria);
+					return _repositorio!.GetLista(conexion);
 				}
 				catch (Exception)
 				{
@@ -109,41 +105,7 @@ namespace FoodStore.Servicios.Servicios
 			}
 		}
 
-		public List<Producto> GetListaPorCategoria(int categoriaId)
-		{
-			using(var conexion = new SqlConnection(CadenaConexion))
-			{
-				conexion.Open();
-				try
-				{
-					return _repositorio!.GetListaPorCategoria(conexion,categoriaId);
-				}
-				catch (Exception)
-				{
-
-					throw;
-				}
-			}
-		}
-
-		public List<Producto>? GetListaProductos()
-		{
-			using (var conexion = new SqlConnection(CadenaConexion))
-			{
-				conexion.Open();
-				try
-				{
-					return _repositorio!.GetListaProductos(conexion);
-				}
-				catch (Exception)
-				{
-
-					throw;
-				}
-			}
-		}
-
-		public void Guardar(Producto? producto)
+		public void Guardar(Combo? combo)
 		{
 			using (var conexion = new SqlConnection(CadenaConexion))
 			{
@@ -152,13 +114,13 @@ namespace FoodStore.Servicios.Servicios
 				{
 					try
 					{
-						if (producto!.ProductoId == 0)
+						if (combo!.ComboId == 0)
 						{
-							_repositorio!.Agregar(producto, conexion, tran);
+							_repositorio!.Agregar(combo, conexion, tran);
 						}
 						else
 						{
-							_repositorio!.Editar(producto, conexion, tran);
+							_repositorio!.Editar(combo, conexion, tran);
 						}
 						tran.Commit();
 					}

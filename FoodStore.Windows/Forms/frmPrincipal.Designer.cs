@@ -37,6 +37,7 @@
 			btnEmpresas = new Button();
 			button1 = new Button();
 			btnProductos = new Button();
+			button2 = new Button();
 			SuspendLayout();
 			// 
 			// btnPaises
@@ -129,6 +130,16 @@
 			btnProductos.UseVisualStyleBackColor = true;
 			btnProductos.Click += btnProductos_Click;
 			// 
+			// button2
+			// 
+			button2.Location = new Point(12, 372);
+			button2.Name = "button2";
+			button2.Size = new Size(112, 34);
+			button2.TabIndex = 0;
+			button2.Text = "Combos";
+			button2.UseVisualStyleBackColor = true;
+			button2.Click += button2_Click;
+			// 
 			// frmPrincipal
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
@@ -136,6 +147,7 @@
 			ClientSize = new Size(800, 450);
 			Controls.Add(btnLocalidades);
 			Controls.Add(btnprovincias);
+			Controls.Add(button2);
 			Controls.Add(btnProductos);
 			Controls.Add(button1);
 			Controls.Add(btnEmpresas);
@@ -160,5 +172,6 @@
 		private Button btnEmpresas;
 		private Button button1;
 		private Button btnProductos;
+		private Button button2;
 	}
 }

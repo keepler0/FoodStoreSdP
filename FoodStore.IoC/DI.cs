@@ -64,8 +64,8 @@ namespace FoodStore.IoC
 				return new ServiciosProvincias(repositorio, cadena);
 			});
 
-			service.AddScoped<IRepositorioGenerico<Tamanio>, RepositorioTamanios>();
-			service.AddScoped<IServiciosGenericos<Tamanio>>(sp =>
+			service.AddScoped<IRepositorioTamanios, RepositorioTamanios>();
+			service.AddScoped<IServiciosTamanios>(sp =>
 			{
 				var repositorio = new RepositorioTamanios();
 				return new ServiciosTamanios(repositorio, cadena);
@@ -111,6 +111,13 @@ namespace FoodStore.IoC
 			{
 				var repositorio = new RepositorioProductos();
 				return new ServiciosProductos(repositorio, cadena);
+			});
+
+			service.AddScoped<IRepositorioCombos, RepositorioCombos>();
+			service.AddScoped<IServiciosCombos>(sp =>
+			{
+				var repositorio = new RepositorioCombos();
+				return new ServiciosCombos(repositorio, cadena);
 			});
 			return service.BuildServiceProvider();
 		}

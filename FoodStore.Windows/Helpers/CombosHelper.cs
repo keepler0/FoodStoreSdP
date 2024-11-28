@@ -143,5 +143,37 @@ namespace FoodStore.Windows.Helpers
 			cbxSubCategorias.DisplayMember = "NombreSubCategoria";
 			cbxSubCategorias.ValueMember = "SubCategoriaId";
 		}
+
+		internal static void CargarCombosProductos(ref ComboBox cbxProductos, IServiceProvider? serviceProvider, int CategoriaId)
+		{
+			_serviceProvider = serviceProvider;
+			var servicios = _serviceProvider!.GetService<IServiciosProductos>();
+			var lista = servicios!.GetListaPorCategoria(CategoriaId);
+			var defaultSc = new Producto
+			{
+				ProductoId = 0,
+				Marca = "Seleccione un producto"
+			};
+			lista.Insert(0, defaultSc);
+			cbxProductos.DataSource = lista;
+			cbxProductos.DisplayMember = "Marca";
+			cbxProductos.ValueMember = "ProductoId";
+		}
+
+		public static void CargarCombosTamanios(ref ComboBox cbxTamanio, IServiceProvider? serviceProvider)
+		{
+			_serviceProvider = serviceProvider;
+			var servicios = _serviceProvider!.GetService<IServiciosTamanios>();
+			var lista = servicios!.GetLista();
+			var defaultTamanio = new Tamanio
+			{
+				TamanioId = 0,
+				NombreTamanio = "Seleccione el tamaño"
+			};
+			lista.Insert(0, defaultTamanio);
+			cbxTamanio.DataSource = lista;
+			cbxTamanio.DisplayMember = "NombreTamanio";
+			cbxTamanio.ValueMember = "TamanioId";
+		}
 	}
 }
